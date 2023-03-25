@@ -36,6 +36,20 @@ func main() {
 		sum += value
 	}
 	fmt.Println(sum)
+
+	var matrix [][]int // инициализация двумерного массива
+	matrix = make([][]int, 10)
+	count := 1
+	for i := 0; i < 5; i++ {
+		matrix[i] = make([]int, 5) //инкриментально заполняем матрицу 5х5
+		for j := 0; j < 5; j++ {
+			//matrix[j] = make([]int, 5) //- будет отходить на 1 позицию от y(выше главной диагонали)
+			matrix[i][j] = count
+			count++
+		}
+		fmt.Println(matrix[i])
+	}
+	mass_str()
 }
 
 func check(arr []int) error {
@@ -45,4 +59,26 @@ func check(arr []int) error {
 	arr[1] = 3
 	fmt.Println(arr)
 	return nil
+}
+
+func mass_str() {
+	mass := []string{"m1", "m2", "m3", "m4", "m5"}
+	for index /*может быть опущен (_) так же самая удобная конструкция*/, value := range mass {
+		fmt.Print(index, " ")
+		fmt.Println(value)
+	}
+	fmt.Println("\n")
+	//2 й способ вывода занчений a конкретно value в массиве
+	for i := range mass {
+		fmt.Println(mass[i])
+	}
+	i := 0
+	for { //бусконечный цикл аналогичен while(true){}
+		if i == 2 {
+			break // работает как си имба что я их изучал
+		}
+		fmt.Println(i)
+		i++
+
+	}
 }
